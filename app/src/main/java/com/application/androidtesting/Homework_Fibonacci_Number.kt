@@ -19,7 +19,8 @@ object Homework_Fibonacci_Number {
         var a = 0L
         var b = 1L
         var c = 1L
-        (1..n-2).forEach { i ->
+//        (1..n-).forEach { i ->
+        (1..n-1).forEach { i ->
             c = a + b
             a = b
             b = c
@@ -30,6 +31,7 @@ object Homework_Fibonacci_Number {
     /**
      * Checks if the braces are set correctly
      * e.g. "(a * b))" should return false
+     * )( -> modification
      */
     fun checkBraces(string: String): Boolean {
         return string.count { it == '(' } == string.count { it == ')' }
