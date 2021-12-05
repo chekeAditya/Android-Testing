@@ -1,5 +1,3 @@
-# Android-Testing
-
 - Test cases test if our code is working.
 - Without tests, you need to manually test the same functionality of your app over and over agina to verify it is working.
 - With JUnit, we can test out code with a single click whenever we want.
@@ -52,4 +50,10 @@ androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
 /*  This will make our assertion much more readable fast*/
 testImplementation "com.google.truth:truth:1.1.1"
+```
+![Testing Room Databases - Testing on Android - Part 6 - YouTube - Brave 12_5_2021 10_18_16 PM](https://user-images.githubusercontent.com/81345503/144755633-a87ea872-152f-4391-9b4f-5031df858e4c.png)
+```kotlin
+@SmallTest //these that whatever we write here are unit test's
+@MediumTest //used for integrated Test
+@LargeTest //end to end test or ui test
 ```
