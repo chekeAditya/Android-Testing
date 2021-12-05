@@ -51,9 +51,25 @@ androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 /*  This will make our assertion much more readable fast*/
 testImplementation "com.google.truth:truth:1.1.1"
 ```
-![Testing Room Databases - Testing on Android - Part 6 - YouTube - Brave 12_5_2021 10_18_16 PM](https://user-images.githubusercontent.com/81345503/144755633-a87ea872-152f-4391-9b4f-5031df858e4c.png)
+
 ```kotlin
 @SmallTest //these that whatever we write here are unit test's
 @MediumTest //used for integrated Test
 @LargeTest //end to end test or ui test
 ```
+
+![https://user-images.githubusercontent.com/81345503/144755633-a87ea872-152f-4391-9b4f-5031df858e4c.png](https://user-images.githubusercontent.com/81345503/144755633-a87ea872-152f-4391-9b4f-5031df858e4c.png)
+
+- If you find this error then  then add this at build.gradle(module)
+
+```kotlin
+android{
+	packagingOptions{
+		exclude 'META-INF/*'
+	}
+}
+```
+
+![https://user-images.githubusercontent.com/81345503/144757460-226bd607-4f11-427c-9c37-3dc7dcdd14aa.png](https://user-images.githubusercontent.com/81345503/144757460-226bd607-4f11-427c-9c37-3dc7dcdd14aa.png)
+
+→ For Securing the API_KEY or some credential from attackers : Copy the API_KEY paste it in [gradle.properties](http://gradle.properties) → go to build.gradle write `buildConfigField("String", "API_KEY", API_KEY)` in defaultConfig → Click on project → open .gitignore file → and simply write `gradle.properties` so that git willl ignore it and ignore while committing it.
