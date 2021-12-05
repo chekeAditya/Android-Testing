@@ -8,6 +8,7 @@ import retrofit2.Response
 
 interface ShoppingRepository {
 
+
     suspend fun insertShoppingItem(shoppingItem: ShoppingItem)
 
     suspend fun deleteShoppingItem(shoppingItem: ShoppingItem)
