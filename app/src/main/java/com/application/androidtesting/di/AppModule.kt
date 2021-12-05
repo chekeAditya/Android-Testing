@@ -2,10 +2,13 @@ package com.application.androidtesting.di
 
 import android.content.Context
 import androidx.room.Room
+import com.application.androidtesting.data.local.ShoppingDao
 import com.application.androidtesting.data.local.ShoppingItemDatabase
 import com.application.androidtesting.other.Constants.BASE_URL
 import com.application.androidtesting.other.Constants.DATABASE_NAME
 import com.application.androidtesting.remote.PixabayApi
+import com.application.androidtesting.repositories.DefaultShoppingRepository
+import com.application.androidtesting.repositories.ShoppingRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,12 +38,19 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providePixaBayApi() : PixabayApi{
+    fun providePixaBayApi(): PixabayApi {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
             .build()
             .create(PixabayApi::class.java)
     }
+
+    @Singleton
+    @Provides
+    fun provideDefaultShoppingRepository(
+        dao: ShoppingDao,
+        api: PixabayApi
+    ) = DefaultShoppingRepository(dao,api) as ShoppingRepository
 
 }
