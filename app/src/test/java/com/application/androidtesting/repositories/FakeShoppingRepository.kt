@@ -44,20 +44,19 @@ class FakeShoppingRepository : ShoppingRepository {
         refreshLiveData()
     }
 
-    override suspend fun searchForImage(imageQuery: String): Resource<ImageResponse> {
-        return if (shouldReturnNetworkError) {
-            Resource.error("Error", null)
-        } else {
-            Resource.success(ImageResponse(listOf(), 0, 0))
-        }
-    }
-
-    override fun observeShoppingItem(): LiveData<List<ShoppingItem>> {
-        return observeShoppingItem()
+    override fun observeAllShoppingItems(): LiveData<List<ShoppingItem>> {
+        return observableShoppingItems
     }
 
     override fun observeTotalPrice(): LiveData<Float> {
         return observableTotalPrice
     }
 
+    override suspend fun searchForImage(imageQuery: String): Resource<ImageResponse> {
+        return if(shouldReturnNetworkError) {
+            Resource.error("Error", null)
+        } else {
+            Resource.success(ImageResponse(listOf(), 0, 0))
+        }
+    }
 }

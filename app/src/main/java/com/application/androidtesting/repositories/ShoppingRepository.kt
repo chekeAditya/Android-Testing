@@ -13,10 +13,10 @@ interface ShoppingRepository {
 
     suspend fun deleteShoppingItem(shoppingItem: ShoppingItem)
 
-    suspend fun searchForImage(imageQuery: String): Resource<ImageResponse>
-
-    fun observeShoppingItem(): LiveData<List<ShoppingItem>>
+    fun observeAllShoppingItems(): LiveData<List<ShoppingItem>>
 
     fun observeTotalPrice(): LiveData<Float>
+
+    suspend fun searchForImage(imageQuery: String): Resource<ImageResponse>
 
 }
